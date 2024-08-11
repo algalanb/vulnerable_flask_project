@@ -15,4 +15,4 @@ FlaskVulnerableApp es un proyecto básico de Flask que incluye una rama con cód
 1. **Clonar el repositorio:**
    ```bash
    git clone https://github.com/algalanb/vulnerable_flask_project.git
-   cd FlaskVulnerableApp
+   cd vulnerable_flask_project
