@@ -20,6 +20,10 @@ def index():
         return f"Welcome {session['username']}!"
     return redirect(url_for('login'))
 
+@app.route('/admin')
+def admin():
+    return "Panel de Administración: Acceso no autorizado permitido."
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -47,10 +51,10 @@ def login():
         password = request.form['password']
 
         conn = g.db
-        cursor = conn.execute("SELECT * FROM users WHERE username = ?", (username,))
+        cursor = conn.execute(f"SELECT * FROM users WHERE username='{username}' AND password='{password}'")
         user = cursor.fetchone()
 
-        if user and check_password_hash(user[2], password):
+        if user:
             session['username'] = username
             return redirect(url_for('index'))
         else:

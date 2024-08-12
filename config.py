@@ -1,4 +1,5 @@
 import os
 
 DATABASE = os.path.join(os.getcwd(), 'users.db')
-SECRET_KEY = os.urandom(24)
+SECRET_KEY = 'supersecretkey'  # Vulnerabilidad: Clave secreta expuesta
+
